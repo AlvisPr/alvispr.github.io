@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My Portfolio Page</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        height: 100vh; 
+    }
+
+    .about__section{
+        background-color: #BF2633;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+-moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+      
+    }
+
+    .about__section>h1 {
+        color: white;
+    }
+
+    .display__section{
+        background-color: #535353; 
+    }
+
+    .avatar{
+        width: 250px;
+        border-radius: 50%;
+        margin-bottom: 50px;
+        border: 3px solid white;
+    }
+.group__one{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.navigation{
+    height: 100px;
+    background-color: #535353;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.navigation>ul {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.navigation>ul>li{
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation>ul>li:hover{
+color: white;
+background-color: #BF2633;
+font-weight: bold;
+padding: 10px;
+transition: background-color 0.8s ease;
+}
+
+.introduction__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 80vh;
+}
+
+.introduction__content>button{
+    height: 60px;
+    width: 180px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+
+.introduction__content>button:hover{
+    background: #BF2633;
+    color: white;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.8s ease;
+}
+
+.icons{
+    width: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons>a>i{
+    font-size: 35px;
+    color: white;
+}
+
+.text{
+    width: 700px;
+}
+
+.text>p{
+    font-size: 24px;
+    color: white;
+}
+
+
+.project__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.image__container{
+    width: 200px;
+    height: auto;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #BF2633;
+    color: white;
+    width: 200px;
+    height: 250px; /* Change this to auto to fit the content smoothly */
+    display: flex; /* Add this to align the items vertically */
+    flex-direction: column; /* Add this to align the items vertically */
+    justify-content: space-evenly; 
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+.card h1{
+    font-size: 24px;
+}
+.card__image{
+    width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.card__button{
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    color: white;
+    background-color: white;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.card__button a {
+    color: black !important;
+} 
+
+.card__button a:hover {
+    color: white !important;
+} 
+
+.card__button:hover{
+    background-color: #333333;
+    color: white;
+}
+
+.card__description{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.back__to__start__button{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;  
+}
+
+.back__to__start__button:hover{
+    background-color: #265828;
+    background-color: #333333;
+    color: white;
+}
+
+/* Add these styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(191, 38, 51, 1);
+    
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: fit-content;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="about__section">
+            <h1>Alvis Prieditis</h1>
+            <img class= "avatar" src="./Photos/Mock Photo.webp">
+            <div class="group__one">
+                <div class="icons">
+                    <a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="mailto:example@example.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/AlvisPr" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div> 
+            </div>
+        </div>
+        <div class="display__section">
+            <div class="navigation">
+                <ul>
+                    <li>About</li>
+                    <li id="projects__tab">Projects</li>
+                </ul>
+            </div>
+            <div class="introduction__content">
+                <div class="text">
+                    <p>Hello! My name is Alvis. I'm a passionate learner in the field of software development. I believe that the journey of learning is continuous and there's always something new to discover in this ever-evolving field.</p>
+                </div>
+                <button id="watch__video">Watch The Video</button>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <iframe id="video" width="840" height="472.5" src="https://www.youtube.com/embed/jL2vpkpDVBY?si=lgwSW0t7BtRNfXFP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script>
+
+let projects = [{
+    name: 'Real Time Bus Tracker',
+    photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
+    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker'
+}, 
+{
+    name: 'Real Time Bus Tracker',
+    photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
+    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker'
+},
+{
+    name: 'Real Time Bus Tracker',
+    photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
+    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker'
+}
+];
+
+let parentElement = document.querySelector('.display__section'); 
+
+// Declare an array to store the containers
+let containers = [];
+
+let elementFactory = () => {
+    parentElement.style.backgroundColor = "#265828";
+    parentElement.className = "project__content"
+
+    projects.forEach(element => {
+        let container = document.createElement('div');
+        container.className = "card"; 
+
+        let imageDiv = document.createElement('div');
+
+        let imageContainer = document.createElement('div'); 
+        imageContainer.className="image__container";
+
+        let description = document.createElement('div');
+        description.className="card__description"
+
+        let image = document.createElement('img');
+        image.className="card__image";
+        image.src = element.photo;
+        imageDiv.appendChild(image);
+
+        let name = document.createElement('h1');
+        name.innerHTML = element.name;
+        description.appendChild(name);
+
+        let link = document.createElement('a');
+        link.href = element.link; 
+        link.style.textDecoration = 'none';
+        link.style.color="white";
+        link.innerHTML = 'Project Link';
+        
+        let button = document.createElement('button'); 
+        button.className="card__button"; 
+        button.appendChild(link);
+        description.appendChild(button);
+        
+        imageContainer.appendChild(imageDiv);
+        container.appendChild(imageContainer);
+        container.appendChild(description);
+
+        parentElement.appendChild(container); 
+
+        // Push the container into the array
+        containers.push(container);
+    });
+}
+
+let projectsTab = document.getElementById('projects__tab')
+projectsTab.addEventListener('click', () => {
+    let introductionContent = document.querySelector('.introduction__content');
+    let navigation = document.querySelector('.navigation');
+
+    introductionContent.style.display = 'none';
+    navigation.style.display = 'none';
+
+    elementFactory();
+
+    let backToStart = document.createElement('button'); 
+    backToStart.innerHTML = '<i class="fas fa-arrow-left style="font-size: 24px;"></i>';
+    backToStart.id = "back__to__start"
+    backToStart.className = "back__to__start__button"; 
+    backToStart.style.position = 'absolute';  
+    backToStart.style.bottom = '0';  
+    backToStart.style.left = '0';  
+    backToStart.style.width = "486px";
+    backToStart.style.height="60px";
+    parentElement.appendChild(backToStart);
+
+    let backButton = document.getElementById('back__to__start');
+    backButton.addEventListener('click', () => {
+        location.reload(); 
+    })
+})
+
+// Modal JavaScript
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("watch__video");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+function stopVideo() {
+    var src = video.src;
+    video.src = "";
+    video.src = src;
+    }
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    stopVideo();
+}
+
+
+
+    </script>
+    
+</body>
+</html>
