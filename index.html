@@ -14,6 +14,11 @@
         padding: 0;
     }
 
+    p{
+        background-color: white;
+        color: black !important;
+        padding: 20px;
+    }
 
     .container{
         display: grid;
@@ -27,10 +32,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 50px;
-        -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
--moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+        gap: 40px;
+        position: relative;
       
     }
 
@@ -39,8 +42,10 @@ box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     }
 
     .display__section{
-        background-color: #535353; 
-    }
+        background-color: none; 
+        background-image: url('https://images7.alphacoders.com/133/1337527.png');
+        background-size: cover;
+    }  
 
     .avatar{
         width: 250px;
@@ -56,7 +61,7 @@ box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 
 .navigation{
     height: 100px;
-    background-color: #535353;
+    background-color: none;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -138,7 +143,7 @@ transition: background-color 0.8s ease;
 .project__content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
 }
 
@@ -256,8 +261,24 @@ transition: background-color 0.8s ease;
     cursor: pointer;
 }
 
+.image__container{
+    height: 150px;
+    width: auto;
+}
 
+.card__image{
+    height: 100%;
+    width: 100%;
+}
 
+@media screen and (max-width: 768px) {
+    .back__to__start__button {
+        width: 100%; /* Set the button width to 100% on smaller screens */
+        max-width: 486px; /* Set a max-width to limit the button size */
+        height: 60px;
+        margin-top: 10px; /* Adjust margin top if needed */
+    }
+}
 
 
 </style>
@@ -310,9 +331,9 @@ let projects = [{
     link: 'https://github.com/AlvisPr/Eye-Movement-Exercise'
 },
 {
-    name: 'Real Time Bus Tracker',
-    photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
-    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker'
+    name: 'PacMen Exercise',
+    photo: 'https://raw.githubusercontent.com/AlvisPr/PacMen-Exercise/main/Screenshots/PacMen.png',
+    link: 'https://github.com/AlvisPr/PacMen-Exercise'
 }
 ];
 
@@ -322,8 +343,11 @@ let parentElement = document.querySelector('.display__section');
 let containers = [];
 
 let elementFactory = () => {
-    parentElement.style.backgroundColor = "#265828";
-    parentElement.className = "project__content"
+    parentElement.style.backgroundColor = "none";
+    parentElement.style.backgroundImage = 'url("https://images7.alphacoders.com/133/1337527.png")';
+    parentElement.style.backgroundSize = "cover";
+    parentElement.className = "project__content";
+    parentElement.style.padding = "50px";
 
     projects.forEach(element => {
         let container = document.createElement('div');
@@ -335,7 +359,7 @@ let elementFactory = () => {
         imageContainer.className="image__container";
 
         let description = document.createElement('div');
-        description.className="card__description"
+        description.className="card__description";
 
         let image = document.createElement('img');
         image.className="card__image";
