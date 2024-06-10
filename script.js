@@ -79,14 +79,18 @@ projectsTab.addEventListener('click', () => {
 
     elementFactory();
     let aboutSection = document.querySelector('.about__section');
-    aboutSection.style.justifyContent = "space-between";
+    aboutSection.style.justifyContent = "center";
+    aboutSection.style.position="relative";
     aboutSection.style.gap="0px";
     let backToStart = document.createElement('button'); 
     backToStart.innerHTML = '<i class="fas fa-arrow-left style="font-size: 24px;"></i>';
     backToStart.id = "back__to__start"
     backToStart.className = "back__to__start__button"; 
-    backToStart.style.width = "486px";
-    backToStart.style.height="60px";
+    backToStart.style.position = "absolute";
+    backToStart.style.width = "inherit"
+    backToStart.style.bottom="0px";
+    backToStart.style.right="0";
+    backToStart.style.width = "10%";
     aboutSection.appendChild(backToStart);
 
     let backButton = document.getElementById('back__to__start');
