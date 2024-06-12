@@ -12,12 +12,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <title>My Portfolio Page</title>
 </head>
 <body>
-    <div class="container">
+    <div  class="container-fluid p-0 m-0">
         <div class="about__section">
             <div class="about__container">
                 <h1>Alvis Prieditis</h1>
@@ -42,26 +46,28 @@
             </div>
             <div class="introduction__content">
                 <div class="text">
-                    <p>Hello! I’m Alvis, a fervent learner in software development. I hold a strong belief in the
+                    <p id="animated-text">Hello! I’m Alvis, a fervent learner in software development. I hold a strong belief in the
                         unending journey of learning. In this ever-evolving field, there’s always something new to
                         unearth. This portfolio is a testament to my relentless pursuit of knowledge and my passion for
                         discovering new aspects of technology. Welcome!</p>
                 </div>
                 <div class="skills__div">
-                    <i class="fa-brands fa-html5"></i>
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <i class="fa-brands fa-js"></i>
-                    <i class="fa-brands fa-node-js"></i>
-                    <i class="fa-brands fa-react"></i>
-                    <i class="fa-brands fa-git"></i>
-                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-html5 skills" data-text="
+                    HTML5 is the latest version of Hypertext Markup Language, used to structure and present content on the web. It encompasses features like multimedia support, semantic elements, and improved accessibility. It's a cornerstone of modern web development, and I incorporate it into every project to ensure compatibility, functionality, and a seamless user experience."></i>
+                    <i class="fa-brands fa-css3-alt skills" data-text="CSS (Cascading Style Sheets) is essential in web development for styling HTML elements, controlling layout, and enhancing visual presentation. It allows me to customize the look and feel of websites, ensuring consistency and responsiveness across different devices and screen sizes, enhancing user experience and aesthetic appeal."></i>
+                    <i class="fa-brands fa-js skills" data-text="JavaScript is a versatile programming language used to create interactive and dynamic web pages. It enables me to add functionality, manipulate content, and respond to user actions in real-time. With its extensive libraries and frameworks, JavaScript empowers me to develop feature-rich and engaging web applications that delight users."></i>
+                    <i class="fa-brands fa-node-js skills" data-text="Node.js is a runtime environment that allows me to execute JavaScript code outside the browser, enabling server-side development. It offers a scalable, event-driven architecture ideal for building fast and lightweight web applications. With its vast ecosystem of modules and packages, Node.js empowers me to create efficient and high-performance server-side solutions, enhancing the functionality and scalability of web applications."></i>
+                    <i class="fa-brands fa-react skills" data-text="
+                    React is a powerful JavaScript library for building interactive user interfaces in web applications. It enables me to create reusable UI components, manage application state efficiently, and update the DOM dynamically. With its declarative and component-based approach, React simplifies complex UI development, enhancing code readability and maintainability. I integrate React into my projects to deliver fast, responsive, and scalable web applications that provide a seamless user experience."></i>
+                    <i class="fa-brands fa-git skills" data-text="Git is a distributed version control system crucial for managing and tracking changes in software development projects. It allows me to collaborate seamlessly with team members, track revisions, and maintain a history of project iterations. Git's branching and merging capabilities streamline development workflows, ensuring project stability and code integrity."></i>
+                    <i class="fa-brands fa-github skills" data-text="GitHub is a popular web-based platform built on top of Git, facilitating collaboration and code sharing among developers. It provides features like repositories, issue tracking, and pull requests, fostering community-driven development and open-source contributions. I utilize GitHub to host and manage my projects, leveraging its robust collaboration tools and version control capabilities."></i>
                 </div>
                 <button id="watch__video">Watch The Video</button>
             </div>
         </div>
     </div>
     <div id="myModal" class="modal">
-        <div class="modal-content">
+        <div class="modal__content">
             <span class="close">&times;</span>
 
             <iframe id="video" width="840" height="472.5"
