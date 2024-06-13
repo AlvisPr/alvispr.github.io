@@ -219,6 +219,12 @@ h1 {
     height: 280px;
 }
 
+.card:hover {
+    animation: borderGlowCards 2s infinite;
+    background-color: #191919;
+    color: white;
+}
+
 /*.card {
     border: 1px solid #ccc;
     padding: 10px;
@@ -406,7 +412,14 @@ iframe {
         box-shadow: 0 0 20px 10px yellow;
     }
 }
-
+@keyframes borderGlowCards {
+    0%, 100% {
+        box-shadow: 0 0 20px 3px rgb(86, 208, 161);
+    }
+    50% {
+        box-shadow: 0 0 20px 3px rgb(86, 208, 161);
+    }
+}
 
 
 
