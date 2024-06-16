@@ -107,3 +107,21 @@
         width: 200px; /* or the size you want */
     }
 }
+
+
+
+@media only screen 
+  and (max-device-width: 428px) 
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+    
+    body {
+        font-size: 18px; 
+        line-height: 1.6; 
+    }
+    
+    .card{
+        width: 100%;
+    }
+
+}
