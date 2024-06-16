@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// JavaScript to add active class when Display section is in view
+// Add active class when Display section is in view
 document.addEventListener("DOMContentLoaded", function() {
     const displaySection = document.querySelector(".display__section");
     const  aboutSection = document.querySelector(".about__section");

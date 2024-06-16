@@ -1,4 +1,4 @@
-/* Ensure universal box-sizing for better control over elements */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -127,7 +127,7 @@ h1 {
 
 .introduction__content>button {
     position: relative;
-    height: 60px;
+    min-height: 60px;
     width: 180px;
     font-size: 16px;
     cursor: pointer;
@@ -159,17 +159,7 @@ h1 {
     animation: glow 1.5s linear infinite;
 }
 
-@keyframes glow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
 
 .introduction__content>button:hover {
     background: #BF2633;
@@ -196,17 +186,7 @@ h1 {
     animation: BorderGlow 1s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+
 
 .text {
     width: 90%;
@@ -214,14 +194,14 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     overflow: auto; 
-    padding: 20px; /* Add padding for better readability */
-    margin: 0 auto; /* Center the text container */
+    padding: 20px; 
+    margin: 0 auto; 
 }
 
 .text>p {
     font-size: 18px;
     font-weight: 600;
-    word-wrap: break-word; /* Ensure long words break to avoid overflow */
+    word-wrap: break-word; 
 }
 
 .project__content {
@@ -272,10 +252,11 @@ h1 {
     overflow: auto;
     background-image: url('https://images7.alphacoders.com/133/1337527.png');
     background-size: cover;
-    display: flex; 
     justify-content: center;
     max-width: 100%;
 }
+
+
 
 .modal__content {
     background-color: none;
@@ -283,7 +264,9 @@ h1 {
     padding: 40px;
     position: relative;
     max-width: 60vw;
+    animation: fadeIn 0.5s forwards;
 }
+
 
 iframe {
     width: 100%;
@@ -343,157 +326,42 @@ iframe {
     background-color: #191919;
     border-radius: 50%;
     box-shadow: 0 0 0 3px green;
-    animation: borderGlow 2s infinite; /* Apply the animation */
+    animation: borderGlow 2s infinite; 
     transition: background-color 0.5s ease;
 }
 
-/* Keyframes for border color animation */
-@keyframes borderGlow {
-    0%, 100% {
-        box-shadow: 0 0 0 3px yellow;
-    }
-    50% {
-        box-shadow: 0 0 20px 10px yellow;
-    }
-}
 
-@keyframes borderGlowCards {
-    0%, 100% {
-        box-shadow: 0 0 20px 3px rgb(86, 208, 161);
-    }
-    50% {
-        box-shadow: 0 0 20px 3px rgb(86, 208, 161);
-    }
-}
+
+
 
 a {
     text-decoration: none;
 }
 
 
-/* CSS for Display section */
 .about__section {
     opacity: 0;
-    transform: translateX(-50px); /* Start from the left */
+    transform: translateX(-50px); 
     transition: opacity 2s ease, transform 2s ease;
 }
 
 .about__section.active {
     opacity: 1;
-    transform: translateX(0); /* Move to original position */
+    transform: translateX(0); 
 }
 
 .display__section {
     opacity: 0;
-    transform: translateX(-50px); /* Start from the left */
+    transform: translateX(-50px); 
     transition: opacity 2s ease, transform 2s ease;
 }
 
 .display__section.active {
     opacity: 1;
-    transform: translateX(0); /* Move to original position */
+    transform: translateX(0); 
 }
 
 
 
 
-@media screen and (max-width: 1100px) {
 
-    
-
-    .about__section {
-        height: 100vh;
-    }
-
-
-    .container-fluid {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .display__section {
-        padding: 50px;
-        height: 250vh;
-    }
-
-    .text {
-        width: 95%;
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
-
-    .text>p {
-        font-size: 16px; /* Smaller font size */
-        padding: 10px;
-    }
-
-
-
-    .icons {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .icons>a>i {
-        font-size: 30px;
-    }
-
-    .introduction__content {
-        gap: 20px;
-    }
-
-    .introduction__content>button {
-        width: 100%;
-        max-width: 200px;
-    }
-
-    .skills__div {
-        gap: 10px;
-    }
-
-    .project__content {
-        grid-template-columns: 1fr;
-    }
-
-    .icons {
-        gap: 15px;
-    }
-
-    .introduction__content {
-        gap: 50px;
-    }
-
-    .avatar {
-        margin-bottom: 25px;
-    }
-
-    .image__container {
-        overflow: hidden;
-        width: 100%;
-        height: auto;
-    }
-
-    .image__div {
-        width: 100%;
-        height: 300px;
-        position: relative;
-    }
-
-    .about__section {
-        padding: 40px;
-    }
-
-    .navigation {
-        justify-content: space-around;
-    }
-
-    .project__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-    .card {
-        flex: 0 0 auto;
-        width: 200px; /* or the size you want */
-    }
-}
