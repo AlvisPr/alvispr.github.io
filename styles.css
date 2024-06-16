@@ -213,12 +213,15 @@ h1 {
 
 .card {
     height: 280px;
+    transition: transform 0.7s ease;
 }
 
 .card:hover {
     animation: borderGlowCards 2s infinite;
     background-color: #191919;
     color: white;
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 .card-img-top {
@@ -364,4 +367,32 @@ a {
 
 
 
+.tooltip {
+    background-color:  rgba(255, 255, 255, 0.9);; /* White background */
+    color: #000; /* Black text */
+    border-radius: 4px; 
+    width: 250px;
+    padding: 10px;
+}
 
+.tooltip .tooltip-inner {
+    max-width: 250px; 
+    padding: 10px;
+    background-color:  rgba(255, 255, 255, 0.9);/* White background */
+    color: #000; /* Black text */
+    text-align:start;
+    word-spacing: 1px;
+}
+
+.tooltip .arrow::before {
+    border-color: #75be84; 
+}
+
+.bi-patch-question {
+    font-size: 25px;
+    padding-left: 7px; 
+  }
+
+  .bi-patch-question:hover{
+    color: green;
+  }

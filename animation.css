@@ -43,6 +43,7 @@
     }
 }
 
+
 @keyframes borderGlowCards {
     0%, 100% {
         box-shadow: 0 0 20px 3px rgb(86, 208, 161);
@@ -51,3 +52,10 @@
         box-shadow: 0 0 20px 3px rgb(86, 208, 161);
     }
 }
+
+@keyframes scaleAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+

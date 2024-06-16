@@ -1,17 +1,20 @@
 let projects = [{
     name: 'Real Time Bus Tracker',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
-    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker'
+    link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker',
+    about: `The Real-Time Bus Tracker is a web application that tracks the movement of a bus along its route.`
 }, 
 {
     name: 'Eye Movement Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Eye-Movement-Exercise/main/Screenshot/eyes.png',
-    link: 'https://github.com/AlvisPr/Eye-Movement-Exercise'
+    link: 'https://github.com/AlvisPr/Eye-Movement-Exercise',
+    about: `This project simulates the movement of eyes following the cursor on the screen. `
 },
 {
     name: 'PacMen Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/PacMen-Exercise/main/Screenshots/PacMen.png',
-    link: 'https://github.com/AlvisPr/PacMen-Exercise'
+    link: 'https://github.com/AlvisPr/PacMen-Exercise',
+    about: `This project is a fun and interactive web application that creates PacMen at random positions on the screen. `
 }
 ];
 
@@ -28,16 +31,35 @@ let elementFactory = () => {
 
     projects.forEach(element => {
         let cardHTML = `
-    <div class="card" style="width: 16rem;">
+    <div class="card" data-bs-toggle="tooltip" style="width: 16rem;" title="${element.about}">
         <img src="${element.photo}" class="card-img-top" alt="${element.name}">
         <div class="card-body">
             <h5 class="card-title">${element.name}</h5>
             <a href="${element.link}" class="btn btn-danger">Project Link</a>
+            <i class="bi bi-patch-question"></i>
         </div>
     </div>
 `;
         parentElement.innerHTML += cardHTML;
     });    
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('.bi-patch-question'));
+tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+  tooltipTriggerEl.addEventListener('mouseenter', function () {
+    var cardId = this.closest('.card').id;
+    var cardElement = document.getElementById(cardId);
+    cardElement.setAttribute('title', this.getAttribute('data-about'));
+    new bootstrap.Tooltip(cardElement, {
+      placement: 'bottom'
+    });
+  });
+
+  tooltipTriggerEl.addEventListener('mouseleave', function () {
+    var cardId = this.closest('.card').id;
+    var cardElement = document.getElementById(cardId);
+    cardElement.removeAttribute('title');
+  });
+});
 }
 
 let projectsTab = document.getElementById('projects__tab');
