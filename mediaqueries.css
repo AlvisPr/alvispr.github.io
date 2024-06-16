@@ -32,11 +32,11 @@
 
     .text {
         width: 95%;
-        padding: 10px; /* Adjust padding for smaller screens */
+        padding: 10px; 
     }
 
     .text>p {
-        font-size: 16px; /* Smaller font size */
+        font-size: 16px; 
         padding: 10px;
     }
 
@@ -104,7 +104,7 @@
 
     .card {
         flex: 0 0 auto;
-        width: 200px; /* or the size you want */
+        width: 200px; 
     }
 }
 

@@ -5,9 +5,9 @@ let projects = [{
     about: `The Real-Time Bus Tracker is a web application that tracks the movement of a bus along its route.`
 }, 
 {
-    name: 'Eye Movement Exercise',
+    name: 'Eye Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Eye-Movement-Exercise/main/Screenshot/eyes.png',
-    link: 'https://github.com/AlvisPr/Eye-Movement-Exercise',
+    link: 'https://github.com/AlvisPr/Eye-Exercise',
     about: `This project simulates the movement of eyes following the cursor on the screen. `
 },
 {
@@ -95,11 +95,18 @@ projectsTab.addEventListener('click', () => {
     createBackButton();
 });
 
-// Modal JavaScript
+
+
+
+
+
+
+
+//Video open/close
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("watch__video");
 var span = document.getElementsByClassName("close")[0];
-var video = document.getElementById("video"); // Assuming your iframe has an ID of 'video'
+var video = document.getElementById("video"); 
 
 btn.onclick = function() {
     modal.style.display = "block";
@@ -123,45 +130,54 @@ window.onclick = function(event) {
     }
 }
 
+
+
+
+
+
+
+//Typewriter Code
 document.addEventListener("DOMContentLoaded", function() {
     const textElement = document.getElementById('animated-text');
     const initialText = textElement.innerText;
     textElement.innerText = '';
 
     let index = 0;
-    let direction = 1; // 1 for writing, -1 for erasing
+    let direction = 1; 
     let currentText = initialText;
     let timeoutId = null;
-    let eraseOnMouseLeave = false; // Flag to track if we should erase on mouse leave
+    let eraseOnMouseLeave = false; 
 
     function typeWriter() {
-        clearTimeout(timeoutId); // Clear the previous timeout
+        clearTimeout(timeoutId); 
 
         if (direction === 1) {
             if (index < currentText.length) {
                 textElement.innerHTML += currentText.charAt(index);
                 index++;
-                timeoutId = setTimeout(typeWriter, 5); // Adjust the speed here
+                timeoutId = setTimeout(typeWriter, 5); 
             } else {
-                direction = 0; // Stop typing after writing
+                direction = 0; 
             }
         } else if (direction === -1 && eraseOnMouseLeave) {
             if (index >= 0) {
                 textElement.innerHTML = currentText.substring(0, index);
                 index--;
-                timeoutId = setTimeout(typeWriter, 5); // Adjust the speed here
+                timeoutId = setTimeout(typeWriter, 5); 
             } else {
                 direction = 1;
                 if (currentText !== initialText) {
                     currentText = initialText;
                     index = 0;
-                    timeoutId = setTimeout(typeWriter, 1000); // Delay before starting to write again
+                    timeoutId = setTimeout(typeWriter, 1000); 
                 }
             }
         }
     }
 
     typeWriter();
+
+
 
     // Function to handle icon hover events
     function handleIconHover(event) {
