@@ -110,18 +110,19 @@
 
 
 
-@media only screen 
-  and (max-device-width: 428px) 
-  and (-webkit-min-device-pixel-ratio: 3) {
-
-    
+@media screen and (max-width: 428px) {
     body {
-        font-size: 18px; 
-        line-height: 1.6; 
-    }
-    
-    .card{
-        width: 100%;
+        font-size: 18px;
+        line-height: 1.6;
     }
 
+    .card {
+        flex: 0 0 calc(100% - 10px); 
+        width: calc(50% - 20px); 
+    }
+     
+    .project__content{
+        width: 100;
+    }
+  
 }
