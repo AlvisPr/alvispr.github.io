@@ -2,19 +2,22 @@ let projects = [{
     name: 'Real Time Bus Tracker',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
     link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker',
-    about: `The Real-Time Bus Tracker is a web application that tracks the movement of a bus along its route.`
+    about: `The Real-Time Bus Tracker is a web application that tracks the movement of a bus along its route.`,
+    live: ``
 }, 
 {
     name: 'Eye Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Eye-Movement-Exercise/main/Screenshot/eyes.png',
     link: 'https://github.com/AlvisPr/Eye-Exercise',
-    about: `This project simulates the movement of eyes following the cursor on the screen. `
+    about: `This project simulates the movement of eyes following the cursor on the screen. `,
+    live: `https://eyemovement.netlify.app/`
 },
 {
     name: 'PacMen Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/PacMen-Exercise/main/Screenshots/PacMen.png',
     link: 'https://github.com/AlvisPr/PacMen-Exercise',
-    about: `This project is a fun and interactive web application that creates PacMen at random positions on the screen. `
+    about: `This project is a fun and interactive web application that creates PacMen at random positions on the screen. `,
+    live: `https://pacmen.netlify.app/`
 }
 ];
 
@@ -35,12 +38,19 @@ let elementFactory = () => {
         <img src="${element.photo}" class="card-img-top" alt="${element.name}">
         <div class="card-body">
             <h5 class="card-title">${element.name}</h5>
-            <a href="${element.link}" class="btn btn-danger">Project Link</a>
-            <i class="bi bi-patch-question"></i>
+            <a href="${element.link}" class="btn btn-danger" target="_blank">Project Link</a>
+            <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton">Preview</a> 
         </div>
     </div>
 `;
         parentElement.innerHTML += cardHTML;
+
+        if (!element.live) {
+            const previewButton = parentElement.querySelector("#previewButton");
+            if (previewButton) {
+                previewButton.classList.add("disabled");
+            }
+        }
     });    
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('.bi-patch-question'));
