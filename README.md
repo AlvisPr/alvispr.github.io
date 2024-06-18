@@ -6,9 +6,6 @@ Welcome to my Portfolio Page! This README provides an overview of the project, h
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Viewing the Portfolio](#viewing-the-portfolio)
-- [Customization](#customization)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
