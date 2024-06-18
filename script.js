@@ -39,7 +39,7 @@ let elementFactory = () => {
         <div class="card-body">
             <h5 class="card-title">${element.name}</h5>
             <a href="${element.link}" class="btn btn-danger" target="_blank">Project Link</a>
-            <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton">Preview</a> 
+            <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton" >Preview</a> 
         </div>
     </div>
 `;
@@ -49,6 +49,7 @@ let elementFactory = () => {
             const previewButton = parentElement.querySelector("#previewButton");
             if (previewButton) {
                 previewButton.classList.add("disabled");
+
             }
         }
     });    
