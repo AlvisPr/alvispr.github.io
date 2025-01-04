@@ -339,14 +339,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.skills').forEach(icon => {
         icon.addEventListener('mouseenter', handleIconHover);
         icon.addEventListener('mouseleave', () => {
-            // Start erasing immediately when mouse leaves the icon
-            eraseOnMouseLeave = true;
-            direction = -1;
-            typeWriter();
-        });
-        icon.addEventListener('mouseover', () => {
-            // Prevent erasing while hovering over the icon
-            eraseOnMouseLeave = false;
+            document.querySelector('.tooltip')?.remove();
         });
     });
 
@@ -400,19 +393,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Scroll to top functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const backToTopButton = document.getElementById('back-to-top');
+console.log('Script loaded');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    renderProjects();
+    initializeModal();
+    typeWriter();
 
-    backToTopButton.addEventListener('click', () => {
+    // Add click handler for logo
+    document.querySelector('.logo-link').addEventListener('click', (e) => {
+        e.preventDefault();
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
