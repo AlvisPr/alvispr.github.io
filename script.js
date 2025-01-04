@@ -1,3 +1,33 @@
+// Loading screen handler
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.querySelector('.loader-wrapper').style.display = 'none';
+        document.querySelector('.content').classList.add('visible');
+    }, 1000);
+});
+
+// Intersection Observer for section animations
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
+        }
+    });
+}, observerOptions);
+
+// Start observing all sections
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => observer.observe(section));
+});
+
 let projects = [{
     name: 'Real Time Bus Tracker',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
