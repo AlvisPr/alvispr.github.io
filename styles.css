@@ -807,6 +807,38 @@ section {
     font-size: 0.7rem;
 }
 
+.cta-button,
+.cta-button:visited,
+.cta-button:active,
+.cta-button:focus {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.cta-button i {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-dark);
+    color: white;
+    text-decoration: none;
+}
+
+.cta-button:hover i {
+    transform: translateY(4px);
+}
+
 .btn-primary {
     background-color: var(--primary-color);
     border: none;
@@ -846,32 +878,6 @@ section {
 .method-link:hover,
 a i:hover {
     text-decoration: none !important;
-}
-
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.cta-button i {
-    font-size: 0.9em;
-    transition: transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: var(--primary-dark);
-}
-
-.cta-button:hover i {
-    transform: translateY(4px);
 }
 
 .modal {
