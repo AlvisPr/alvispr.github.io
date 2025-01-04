@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-text {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     line-height: 1.6;
     text-align: left;
     padding: 0;
