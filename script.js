@@ -41,30 +41,38 @@ let parentElement = document.querySelector('.display__section');
 let containers = [];
 
 let elementFactory = () => {
-    parentElement.style.backgroundColor = "none";
-    parentElement.style.backgroundImage = 'url("https://images7.alphacoders.com/133/1337527.png")';
-    parentElement.style.backgroundSize = "cover";
+    parentElement.style.backgroundColor = "transparent";
+    parentElement.style.backgroundImage = "none";
+    
+    // Create bubble container if it doesn't exist
+    let bubbleContainer = document.querySelector('.bubble-container');
+    if (!bubbleContainer) {
+        bubbleContainer = document.createElement('div');
+        bubbleContainer.className = 'bubble-container';
+        document.body.insertBefore(bubbleContainer, document.body.firstChild);
+    }
+    
     parentElement.className = "project__content";
     parentElement.style.padding = "50px";
 
     projects.forEach(element => {
         let cardHTML = `
-    <div class="card" data-bs-toggle="tooltip" style="width: 16rem;" title="${element.about}">
-        ${element.photo ? 
-            `<img src="${element.photo}" class="card-img-top" alt="${element.name}">` : 
-            `<div class="card-img-top d-flex align-items-center justify-content-center" 
-                style="height: 160px; width: 100%; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); object-fit: cover;">
-                <i class="fas fa-image" style="font-size: 3rem; color: #4a5568;"></i>
-             </div>`
-        }
-        <div class="card-body">
-            <h5 class="card-title">${element.name}</h5>
-            <div class="btn-container">
-                <a href="${element.link}" class="btn btn-danger" target="_blank"><i class="fas fa-code"></i> Project Link</a>
-                <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton"><i class="fas fa-eye"></i> Preview</a>
+        <div class="card" data-bs-toggle="tooltip" style="width: 16rem;" title="${element.about}">
+            ${element.photo ? 
+                `<img src="${element.photo}" class="card-img-top" alt="${element.name}">` : 
+                `<div class="card-img-top d-flex align-items-center justify-content-center" 
+                    style="height: 160px; width: 100%; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); object-fit: cover;">
+                    <i class="fas fa-image" style="font-size: 3rem; color: #4a5568;"></i>
+                 </div>`
+            }
+            <div class="card-body">
+                <h5 class="card-title">${element.name}</h5>
+                <div class="btn-container">
+                    <a href="${element.link}" class="btn btn-danger" target="_blank"><i class="fas fa-code"></i> Code</a>
+                    <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton"><i class="fas fa-eye"></i> Demo</a>
+                </div>
             </div>
         </div>
-    </div>
 `;
         parentElement.innerHTML += cardHTML;
 
@@ -72,28 +80,27 @@ let elementFactory = () => {
             const previewButton = parentElement.querySelector("#previewButton");
             if (previewButton) {
                 previewButton.classList.add("disabled");
-
             }
         }
     });    
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('.bi-patch-question'));
-tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-  tooltipTriggerEl.addEventListener('mouseenter', function () {
-    var cardId = this.closest('.card').id;
-    var cardElement = document.getElementById(cardId);
-    cardElement.setAttribute('title', this.getAttribute('data-about'));
-    new bootstrap.Tooltip(cardElement, {
-      placement: 'bottom'
-    });
-  });
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        tooltipTriggerEl.addEventListener('mouseenter', function () {
+            var cardId = this.closest('.card').id;
+            var cardElement = document.getElementById(cardId);
+            cardElement.setAttribute('title', this.getAttribute('data-about'));
+            new bootstrap.Tooltip(cardElement, {
+                placement: 'bottom'
+            });
+        });
 
-  tooltipTriggerEl.addEventListener('mouseleave', function () {
-    var cardId = this.closest('.card').id;
-    var cardElement = document.getElementById(cardId);
-    cardElement.removeAttribute('title');
-  });
-});
+        tooltipTriggerEl.addEventListener('mouseleave', function () {
+            var cardId = this.closest('.card').id;
+            var cardElement = document.getElementById(cardId);
+            cardElement.removeAttribute('title');
+        });
+    });
 }
 
 let projectsTab = document.getElementById('projects__tab');
@@ -124,12 +131,30 @@ projectsTab.addEventListener('click', () => {
     createBackButton();
 });
 
+// Bubble Background Animation
+function createBubble() {
+    const bubbleContainer = document.querySelector('.bubble-container');
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    
+    const size = Math.random() * 60 + 20; // Random size between 20px and 80px
+    const startPosition = Math.random() * 100; // Random starting position
+    
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${startPosition}vw`;
+    bubble.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random duration between 3-5s
+    
+    bubbleContainer.appendChild(bubble);
+    
+    // Remove bubble after animation ends
+    bubble.addEventListener('animationend', () => {
+        bubble.remove();
+    });
+}
 
-
-
-
-
-
+// Create bubbles at regular intervals
+setInterval(createBubble, 300);
 
 //Video open/close
 var modal = document.getElementById("myModal");
@@ -158,12 +183,6 @@ window.onclick = function(event) {
         stopVideo();
     }
 }
-
-
-
-
-
-
 
 //Typewriter Code
 document.addEventListener("DOMContentLoaded", function() {
