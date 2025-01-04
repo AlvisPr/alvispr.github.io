@@ -216,11 +216,14 @@ h1 {
 
 .project__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.25rem;
+    padding: 1.5rem;
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     overflow: hidden;
+    justify-items: center;
 }
 
 .card {
@@ -228,6 +231,10 @@ h1 {
     transition: transform 0.7s ease;
     display: flex;
     flex-direction: column;
+    width: 16rem;
+    margin: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: none;
 }
 
 .card-img-top {
@@ -259,6 +266,7 @@ h1 {
     color: white;
     cursor: pointer;
     transform: scale(1.02);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .card-body .btn-container {
