@@ -50,6 +50,7 @@
 }
 
 html, body {
+    scroll-behavior: smooth;
     overflow-x: hidden;
     position: relative;
     width: 100%;
@@ -182,6 +183,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    text-align: left;
 }
 
 .hero-text {
@@ -189,6 +191,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.6;
+    text-align: left;
+    padding: 0;
 }
 
 .hero-cta {
@@ -204,8 +208,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-image img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--primary-color);
@@ -1106,4 +1110,26 @@ a {
     100% {
         box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
     }
+}
+
+.typewriter {
+    border-right: 3px solid var(--primary-color);
+    animation: typing 3.5s steps(40, end) forwards,
+               blink-caret .75s step-end 8;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { 
+        width: 100%;
+        border-right: transparent;
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
 }
