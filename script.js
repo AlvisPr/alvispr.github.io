@@ -103,14 +103,9 @@ let aboutSection = document.querySelector('.about__section');
 
 function createBackButton() {
     let backToStart = document.createElement('button'); 
-    backToStart.innerHTML = '<i class="fas fa-arrow-left" style="font-size: 20px;"></i>';
+    backToStart.innerHTML = '<i class="fas fa-arrow-left" style="font-size: 16px;"></i>';
     backToStart.id = "back__to__start";
     backToStart.className = "back__to__start__button"; 
-    backToStart.style.position = "absolute";
-    backToStart.style.width = "inherit";
-    backToStart.style.bottom = "0px";
-    backToStart.style.right = "0";
-    backToStart.style.width = "10%";
     aboutSection.appendChild(backToStart);
 
     backToStart.addEventListener('click', () => {
