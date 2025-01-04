@@ -53,8 +53,10 @@ let elementFactory = () => {
         <img src="${element.photo}" class="card-img-top" alt="${element.name}">
         <div class="card-body">
             <h5 class="card-title">${element.name}</h5>
-            <a href="${element.link}" class="btn btn-danger" target="_blank">Project Link</a>
-            <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton" >Preview</a> 
+            <div class="btn-container">
+                <a href="${element.link}" class="btn btn-danger" target="_blank"><i class="fas fa-code"></i> Project Link</a>
+                <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton"><i class="fas fa-eye"></i> Preview</a>
+            </div>
         </div>
     </div>
 `;
@@ -269,4 +271,3 @@ document.addEventListener("DOMContentLoaded", function() {
         textContainer.classList.add("expand");
     }
 });
-

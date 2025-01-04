@@ -240,6 +240,41 @@ h1 {
     height: 150px;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.card-title {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-body .btn-container {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.card-body .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.card-body .btn i {
+    font-size: 12px;
+}
+
 .back__to__start__button {
     outline: none;
     border: none;
