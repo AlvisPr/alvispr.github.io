@@ -1336,6 +1336,7 @@ a i:hover {
     background-color: var(--primary-dark);
     color: white;
     border-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
