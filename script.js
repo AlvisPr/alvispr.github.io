@@ -32,46 +32,46 @@ let projects = [{
     name: 'Real Time Bus Tracker',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Real-Time-Bus-Tracker/main/Screenshoots/Screenshot.png',
     link: 'https://github.com/AlvisPr/Real-Time-Bus-Tracker',
-    about: `The Real-Time Bus Tracker is a web application that tracks the movement of a bus along its route.`,
-    live: ``
+    about: 'Interactive map tracks bus movement between MIT and Harvard stops.',
+    live: ''
 }, 
 {
     name: 'Eye Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/Eye-Movement-Exercise/main/Screenshot/eyes.png',
     link: 'https://github.com/AlvisPr/Eye-Exercise',
-    about: `This project simulates the movement of eyes following the cursor on the screen. `,
-    live: `https://eyemovement.netlify.app/`
+    about: 'Dynamic eyes follow cursor movement across the webpage screen.',
+    live: 'https://eyemovement.netlify.app/'
 },
 {
     name: 'PacMen Exercise',
     photo: 'https://raw.githubusercontent.com/AlvisPr/PacMen-Exercise/main/Screenshots/PacMen.png',
     link: 'https://github.com/AlvisPr/PacMen-Exercise',
-    about: `This project is a fun and interactive web application that creates PacMen at random positions on the screen. `,
-    live: `https://pacmen.netlify.app/`
+    about: 'Create and animate PacMan characters bouncing around the screen.',
+    live: 'https://pacmen.netlify.app/'
 },
 {
-    name: 'Little Lemon Restaurant Capstone Project',
+    name: 'Little Lemon Restaurant',
     photo: '',
     link: 'https://github.com/AlvisPr/little-lemon-capstone',
-    about: `This project is my Capstone Project I did as a final assignmnet for Meta front end developer certificate. It is a restaurant website for a fictional restaurant called Little Lemon Mediterranean. `,
-    live: `https://littlelemonmediterranean.netlify.app/`
+    about: 'Mediterranean restaurant website with online booking and menu system.',
+    live: 'https://littlelemonmediterranean.netlify.app/'
 }, 
 {
-    name: 'Full Stack Banking App Capstone Project',
+    name: 'Full Stack Banking App',
     photo: 'https://raw.githubusercontent.com/AlvisPr/FrontEndBankingApp_MIT/refs/heads/master/readme%20assets/HomePage.png',
     link: 'https://github.com/AlvisPr/FrontEndBankingApp_MIT',
-    about: `This a capstone project I did as a final assignment for MIT ProX 32 Week Full Stack Development Bootcampt program. It is a full stack banking application that allows users to create an account, deposit, withdraw, and transfer money. `,
-    live: `https://www.alvisprieditisfullstackbankingapp.online/`
+    about: 'Secure banking application for deposits, withdrawals, and money transfers.',
+    live: 'https://www.alvisprieditisfullstackbankingapp.online/'
 }];
 
 // Function to get technologies for each project
 function getProjectTechnologies(projectName) {
     const techStack = {
         'Real Time Bus Tracker': ['JavaScript', 'Mapbox API', 'HTML', 'CSS'],
-        'Eye Exercise': ['JavaScript', 'HTML', 'CSS', 'DOM Manipulation'],
-        'PacMen Exercise': ['JavaScript', 'HTML', 'CSS', 'Game Development'],
-        'Little Lemon Restaurant Capstone Project': ['React', 'CSS', 'JavaScript', 'UI/UX Design'],
-        'Full Stack Banking App Capstone Project': ['React', 'Node.js', 'MongoDB', 'Express', 'JWT']
+        'Eye Exercise': ['JavaScript', 'HTML', 'CSS'],
+        'PacMen Exercise': ['JavaScript', 'HTML', 'CSS'],
+        'Little Lemon Restaurant': ['React', 'Context API', 'JavaScript', 'CSS'],
+        'Full Stack Banking App': ['React', 'Context API', 'Node.js', 'Express.js', 'MongoDB', 'JWT']
     };
     return techStack[projectName] || ['HTML', 'CSS', 'JavaScript'];
 }
