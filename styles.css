@@ -22,7 +22,7 @@
     
     /* Text Colors */
     --text-primary: #0f172a;
-    --text-secondary: #1e293b;
+    --text-secondary: #64748b;
     --text-light: #475569;
     
     /* UI Colors */
@@ -65,12 +65,13 @@ body {
 }
 
 p {
-    color: var(--text-secondary) !important;
-    padding: 20px;
+    color: var(--text-secondary);
     font-family: "Roboto", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
+    padding: 0;
 }
 
 h1 {
@@ -187,11 +188,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-text {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.6;
     text-align: left;
+    max-width: 600px;
     padding: 0;
 }
 
@@ -264,8 +266,9 @@ section {
 
 .skill-card h3 {
     font-size: 1.25rem;
-    color: var(--text-primary);
+    color: var(--primary-color);
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .skill-card p {
@@ -373,7 +376,7 @@ section {
 
 .project-title {
     font-size: 1.25rem;
-    color: var(--text-primary);
+    color: var(--primary-color);
     margin-bottom: 0.75rem;
     font-weight: 600;
     text-align: left;
@@ -383,7 +386,7 @@ section {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     text-align: left;
     padding: 0;
 }
@@ -396,7 +399,7 @@ section {
 
 .tech-tag {
     background: var(--background-light);
-    color: var(--primary-color);
+    color: var(--text-secondary);
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -471,7 +474,7 @@ section {
 }
 
 .contact-method h3 {
-    color: var(--text-primary);
+    color: var(--primary-color);
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -485,7 +488,7 @@ section {
 }
 
 .method-link {
-    color: var(--primary-color);
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
     padding: 0.75rem 1.5rem;
@@ -634,6 +637,7 @@ section {
     color: var(--text-secondary);
     line-height: 1.6;
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
 .about-cta {
@@ -822,18 +826,52 @@ section {
 
 .btn-secondary {
     background-color: var(--background-gray);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     border: 1px solid var(--background-gray);
     padding: 0.75rem 1.5rem;
     font-weight: 500;
     border-radius: 8px;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-secondary:hover {
     background-color: var(--background-light);
-    border-color: var(--primary-light);
     color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.method-link:hover,
+a i:hover {
+    text-decoration: none !important;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-button i {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.cta-button:hover i {
+    transform: translateY(4px);
 }
 
 .modal {
@@ -898,7 +936,7 @@ section {
     position: absolute;
     right: -40px;
     top: -40px;
-    color: var(--text-light);
+    color: var(--text-secondary);
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
@@ -1158,4 +1196,39 @@ a i {
 .method-link:hover,
 a i:hover {
     text-decoration: none !important;
+}
+
+.scroll-icon {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.scroll-icon {
+    position: relative;
+}
+
+.scroll-icon::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 12px;
+    background-color: var(--text-secondary);
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.scroll-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 10px);
 }
