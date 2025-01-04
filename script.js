@@ -103,7 +103,7 @@ let aboutSection = document.querySelector('.about__section');
 
 function createBackButton() {
     let backToStart = document.createElement('button'); 
-    backToStart.innerHTML = '<i class="fas fa-arrow-left" style="font-size: 24px;"></i>';
+    backToStart.innerHTML = '<i class="fas fa-arrow-left" style="font-size: 20px;"></i>';
     backToStart.id = "back__to__start";
     backToStart.className = "back__to__start__button"; 
     backToStart.style.position = "absolute";
