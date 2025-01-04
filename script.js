@@ -32,80 +32,137 @@ let projects = [{
     link: 'https://github.com/AlvisPr/FrontEndBankingApp_MIT',
     about: `This a capstone project I did as a final assignment for MIT ProX 32 Week Full Stack Development Bootcampt program. It is a full stack banking application that allows users to create an account, deposit, withdraw, and transfer money. `,
     live: `https://www.alvisprieditisfullstackbankingapp.online/`
-}, 
+}];
 
-];
+// Function to get technologies for each project
+function getProjectTechnologies(projectName) {
+    const techStack = {
+        'Real Time Bus Tracker': ['JavaScript', 'Mapbox API', 'HTML', 'CSS'],
+        'Eye Exercise': ['JavaScript', 'HTML', 'CSS', 'DOM Manipulation'],
+        'PacMen Exercise': ['JavaScript', 'HTML', 'CSS', 'Game Development'],
+        'Little Lemon Restaurant Capstone Project': ['React', 'CSS', 'JavaScript', 'UI/UX Design'],
+        'Full Stack Banking App Capstone Project': ['React', 'Node.js', 'MongoDB', 'Express', 'JWT']
+    };
+    return techStack[projectName] || ['HTML', 'CSS', 'JavaScript'];
+}
+
+// Function to render projects
+function renderProjects() {
+    const projectsGrid = document.querySelector('#projects .projects-grid');
+    if (!projectsGrid) return;
+
+    projectsGrid.innerHTML = '';
+
+    projects.forEach(project => {
+        const projectCard = document.createElement('article');
+        projectCard.className = 'project-card';
+
+        const projectHTML = `
+            <div class="project-image">
+                ${project.photo ? 
+                    `<img src="${project.photo}" alt="${project.name}" loading="lazy">` : 
+                    `<div class="placeholder-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>`
+                }
+                <div class="project-overlay">
+                    <div class="project-links">
+                        ${project.live ? 
+                            `<a href="${project.live}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>` : ''
+                        }
+                        <a href="${project.link}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Source Code">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">${project.name}</h3>
+                <p class="project-description">${project.about}</p>
+                <div class="project-tech">
+                    ${getProjectTechnologies(project.name)
+                        .map(tech => `<span class="tech-tag">${tech}</span>`)
+                        .join('')}
+                </div>
+            </div>`;
+
+        projectCard.innerHTML = projectHTML;
+        projectsGrid.appendChild(projectCard);
+    });
+}
+
+// Initialize projects when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    renderProjects();
+});
+
+// Event listener for navigation
+document.querySelectorAll('a[href="#projects"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        renderProjects();
+    });
+});
 
 let parentElement = document.querySelector('.display__section'); 
-
-let containers = [];
 
 let elementFactory = () => {
     parentElement.style.backgroundColor = "transparent";
     parentElement.style.backgroundImage = "none";
-    
-    // Create bubble container if it doesn't exist
-    let bubbleContainer = document.querySelector('.bubble-container');
-    if (!bubbleContainer) {
-        bubbleContainer = document.createElement('div');
-        bubbleContainer.className = 'bubble-container';
-        document.body.insertBefore(bubbleContainer, document.body.firstChild);
-    }
-    
-    parentElement.className = "project__content";
+    parentElement.className = "projects-grid";
     parentElement.style.padding = "50px";
+    parentElement.innerHTML = ''; // Clear existing content
 
     projects.forEach(element => {
         let cardHTML = `
-        <div class="card" data-bs-toggle="tooltip" style="width: 16rem;" title="${element.about}">
-            ${element.photo ? 
-                `<img src="${element.photo}" class="card-img-top" alt="${element.name}">` : 
-                `<div class="card-img-top d-flex align-items-center justify-content-center" 
-                    style="height: 160px; width: 100%; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); object-fit: cover;">
-                    <i class="fas fa-image" style="font-size: 3rem; color: #4a5568;"></i>
-                 </div>`
-            }
-            <div class="card-body">
-                <h5 class="card-title">${element.name}</h5>
-                <div class="btn-container">
-                    <a href="${element.link}" class="btn btn-danger" target="_blank"><i class="fas fa-code"></i> Code</a>
-                    <a href="${element.live}" class="btn btn-success" target="_blank" id="previewButton"><i class="fas fa-eye"></i> Demo</a>
+        <article class="project-card">
+            <div class="project-image">
+                ${element.photo ? 
+                    `<img src="${element.photo}" alt="${element.name}" loading="lazy">` : 
+                    `<div class="placeholder-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>`
+                }
+                <div class="project-overlay">
+                    <div class="project-links">
+                        ${element.live ? 
+                            `<a href="${element.live}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>` : ''
+                        }
+                        <a href="${element.link}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View Source Code">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-`;
+            <div class="project-content">
+                <h3 class="project-title">${element.name}</h3>
+                <p class="project-description">${element.about}</p>
+                <div class="project-tech">
+                    ${getProjectTechnologies(element.name)
+                        .map(tech => `<span class="tech-tag">${tech}</span>`)
+                        .join('')}
+                </div>
+            </div>
+        </article>`;
         parentElement.innerHTML += cardHTML;
-
-        if (!element.live) {
-            const previewButton = parentElement.querySelector("#previewButton");
-            if (previewButton) {
-                previewButton.classList.add("disabled");
-            }
-        }
-    });    
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('.bi-patch-question'));
-    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        tooltipTriggerEl.addEventListener('mouseenter', function () {
-            var cardId = this.closest('.card').id;
-            var cardElement = document.getElementById(cardId);
-            cardElement.setAttribute('title', this.getAttribute('data-about'));
-            new bootstrap.Tooltip(cardElement, {
-                placement: 'bottom'
-            });
-        });
-
-        tooltipTriggerEl.addEventListener('mouseleave', function () {
-            var cardId = this.closest('.card').id;
-            var cardElement = document.getElementById(cardId);
-            cardElement.removeAttribute('title');
-        });
     });
-}
+};
 
 let projectsTab = document.getElementById('projects__tab');
 let introductionContent = document.querySelector('.introduction__content');
 let navigation = document.querySelector('.navigation');
+
+projectsTab.addEventListener('click', () => {
+    introductionContent.style.display = 'none';
+    navigation.style.display = 'none';
+    elementFactory();
+});
+
 let aboutSection = document.querySelector('.about__section');
 
 function createBackButton() {
@@ -156,35 +213,74 @@ function createBubble() {
 // Create bubbles at regular intervals
 setInterval(createBubble, 300);
 
-//Video open/close
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("watch__video");
-var span = document.getElementsByClassName("close")[0];
-var video = document.getElementById("video"); 
+// Modal functionality
+function initializeModal() {
+    const modal = document.getElementById('myModal');
+    const video = document.getElementById('video');
+    const closeBtn = document.querySelector('.close');
+    const youtubeBtn = document.querySelector('.youtube-btn');
+    const VIDEO_URL = "https://www.youtube.com/embed/_47DFMJPiP0?si=H6-niX23dki5a3oZ";
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+    function createModalBubbles() {
+        const modalBubbleContainer = modal.querySelector('.bubble-container');
+        if (!modalBubbleContainer) {
+            const bubbleContainer = document.createElement('div');
+            bubbleContainer.className = 'bubble-container';
+            modal.insertBefore(bubbleContainer, modal.firstChild);
+        }
+        createBubble(); // Create initial bubbles
+    }
 
-span.onclick = function() {
-    modal.style.display = "none";
-    stopVideo();
-}
+    function openModal() {
+        modal.style.display = "flex";
+        video.src = VIDEO_URL;
+        createModalBubbles();
+        // Start creating bubbles at intervals when modal is open
+        modal.setAttribute('data-bubble-interval', setInterval(createBubble, 300));
+    }
 
-function stopVideo() {
-    var src = video.src;
-    video.src = "";
-    video.src = src;
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
+    function closeModal() {
         modal.style.display = "none";
         stopVideo();
+        // Clear bubble interval when modal is closed
+        clearInterval(Number(modal.getAttribute('data-bubble-interval')));
+        // Remove all bubbles from modal
+        const modalBubbleContainer = modal.querySelector('.bubble-container');
+        if (modalBubbleContainer) {
+            modalBubbleContainer.innerHTML = '';
+        }
     }
+
+    function stopVideo() {
+        video.src = "";
+        video.src = VIDEO_URL;
+    }
+
+    // Add click handler to YouTube button
+    youtubeBtn.addEventListener('click', openModal);
+
+    // Close button handler
+    closeBtn.addEventListener('click', closeModal);
+
+    // Click outside modal to close
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
 }
 
-//Typewriter Code
+// Initialize modal functionality after DOM content is loaded
+document.addEventListener('DOMContentLoaded', initializeModal);
+
+// Typewriter Code
 document.addEventListener("DOMContentLoaded", function() {
     const textElement = document.getElementById('animated-text');
     const initialText = textElement.innerText;
@@ -255,23 +351,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Modal functionality remains unchanged
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
+    // btn.onclick = function() {
+    //     modal.style.display = "block";
+    // }
 
-    span.onclick = function() {
-        modal.style.display = "none";
-        stopVideo();
-    }
+    // span.onclick = function() {
+    //     modal.style.display = "none";
+    //     stopVideo();
+    // }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            stopVideo();
-        }
-    }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //         stopVideo();
+    //     }
+    // }
 });
-
 
 // Add active class when Display section is in view
 document.addEventListener("DOMContentLoaded", function() {
@@ -290,4 +385,37 @@ document.addEventListener("DOMContentLoaded", function() {
     if (animatedText.scrollHeight > animatedText.clientHeight) {
         textContainer.classList.add("expand");
     }
+});
+
+// Contact card flip functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const contactCard = document.querySelector('.contact-card');
+    const flipButtons = document.querySelectorAll('.contact-flip-btn');
+
+    flipButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            contactCard.classList.toggle('flipped');
+        });
+    });
+});
+
+// Scroll to top functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
