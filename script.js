@@ -18,7 +18,22 @@ let projects = [{
     link: 'https://github.com/AlvisPr/PacMen-Exercise',
     about: `This project is a fun and interactive web application that creates PacMen at random positions on the screen. `,
     live: `https://pacmen.netlify.app/`
-}
+},
+{
+    name: 'Little Lemon Restaurant Capstone Project',
+    photo: '',
+    link: 'https://github.com/AlvisPr/little-lemon-capstone',
+    about: `This project is my Capstone Project I did as a final assignmnet for Meta front end developer certificate. It is a restaurant website for a fictional restaurant called Little Lemon Mediterranean. `,
+    live: `https://littlelemonmediterranean.netlify.app/`
+}, 
+{
+    name: 'Full Stack Banking App Capstone Project',
+    photo: 'https://raw.githubusercontent.com/AlvisPr/FrontEndBankingApp_MIT/refs/heads/master/readme%20assets/HomePage.png',
+    link: 'https://github.com/AlvisPr/FrontEndBankingApp_MIT',
+    about: `This a capstone project I did as a final assignment for MIT ProX 32 Week Full Stack Development Bootcampt program. It is a full stack banking application that allows users to create an account, deposit, withdraw, and transfer money. `,
+    live: `https://www.alvisprieditisfullstackbankingapp.online/`
+}, 
+
 ];
 
 let parentElement = document.querySelector('.display__section'); 
