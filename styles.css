@@ -226,6 +226,31 @@ h1 {
 .card {
     height: 280px;
     transition: transform 0.7s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    overflow: hidden;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.card-title {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .card:hover {
@@ -234,23 +259,6 @@ h1 {
     color: white;
     cursor: pointer;
     transform: scale(1.02);
-}
-
-.card-img-top {
-    height: 150px;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    overflow: hidden;
-}
-
-.card-title {
-    margin-bottom: 12px;
-    font-size: 16px;
-    font-weight: 600;
 }
 
 .card-body .btn-container {

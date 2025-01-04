@@ -50,7 +50,13 @@ let elementFactory = () => {
     projects.forEach(element => {
         let cardHTML = `
     <div class="card" data-bs-toggle="tooltip" style="width: 16rem;" title="${element.about}">
-        <img src="${element.photo}" class="card-img-top" alt="${element.name}">
+        ${element.photo ? 
+            `<img src="${element.photo}" class="card-img-top" alt="${element.name}">` : 
+            `<div class="card-img-top d-flex align-items-center justify-content-center" 
+                style="height: 160px; width: 100%; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); object-fit: cover;">
+                <i class="fas fa-image" style="font-size: 3rem; color: #4a5568;"></i>
+             </div>`
+        }
         <div class="card-body">
             <h5 class="card-title">${element.name}</h5>
             <div class="btn-container">
