@@ -1133,3 +1133,27 @@ a {
     from, to { border-color: transparent }
     50% { border-color: var(--primary-color) }
 }
+
+/* Remove underlines from buttons and icon links */
+.btn-primary,
+.btn-secondary,
+.project-link,
+.contact-link,
+.social-link,
+.hero-cta a,
+.method-link,
+a i {
+    text-decoration: none !important;
+}
+
+/* Ensure no underline appears on hover */
+.btn-primary:hover,
+.btn-secondary:hover,
+.project-link:hover,
+.contact-link:hover,
+.social-link:hover,
+.hero-cta a:hover,
+.method-link:hover,
+a i:hover {
+    text-decoration: none !important;
+}
