@@ -51,10 +51,10 @@ let projects = [{
 },
 {
     name: 'Little Lemon Restaurant',
-    photo: '',
+    photo: './Photos/littlelemon.jpeg',
     link: 'https://github.com/AlvisPr/little-lemon-capstone',
     about: 'Mediterranean restaurant website with online booking and menu system.',
-    live: 'https://littlelemonmediterranean.netlify.app/'
+    live: 'http://68.183.109.1:3000/'
 }, 
 {
     name: 'Full Stack Banking App',
