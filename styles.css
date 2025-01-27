@@ -291,12 +291,14 @@ section {
     justify-content: center;
     align-items: center;
     border: 1px solid var(--background-gray);
+    cursor: pointer;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .skill-card i {
@@ -341,6 +343,7 @@ section {
     height: 400px;
     display: flex;
     flex-direction: column;
+    
 }
 
 .project-image {
@@ -400,6 +403,10 @@ section {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+.project-content:hover {
+    cursor: pointer;
 }
 
 .project-title {
@@ -588,6 +595,7 @@ section {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .method-icon {
@@ -749,12 +757,14 @@ section {
     gap: 0.75rem;
     border: 1px solid var(--background-gray);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
 }
 
 .about-section-content:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-color);
+    cursor: pointer;
 }
 
 .about-section-content h4 {
