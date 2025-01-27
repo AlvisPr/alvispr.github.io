@@ -54,7 +54,7 @@ let projects = [{
     photo: './Photos/littlelemon.jpeg',
     link: 'https://github.com/AlvisPr/little-lemon-capstone',
     about: 'Mediterranean restaurant website with online booking and menu system.',
-    live: 'http://68.183.109.1:3000/'
+    live: "https://littlelemonfreshfood.netlify.app/"
 }, 
 {
     name: 'Full Stack Banking App',
