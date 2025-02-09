@@ -251,6 +251,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-image img:hover {
     transform: scale(1.05);
     border-color: var(--primary-light);
+    cursor: pointer;
 }
 
 .hero-buttons {
@@ -325,10 +326,12 @@ section {
 
 .skill-card i {
     font-size: 2.5rem;
-    color: var(--primary-color);
     margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
+
+/* Colorful skill icons */
+.skill-card i { color: var(--primary-color); }
 
 .skill-card h3 {
     color: var(--text-primary);
@@ -671,8 +674,11 @@ section {
 
 .contact-methods {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-method {
@@ -693,10 +699,32 @@ section {
     overflow: hidden;
 }
 
+.contact-method::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-method:hover::before {
+    opacity: 1;
+}
+
 .contact-method:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .method-icon {
@@ -860,7 +888,7 @@ section {
 .about-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
 }
 
 .about-text {
@@ -871,8 +899,9 @@ section {
 
 .about-details {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
 }
 
 .about-section-content {
@@ -883,27 +912,9 @@ section {
     position: relative;
     overflow: hidden;
     min-height: 280px;
-}
-
-.about-section-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .about-section-content::before {
@@ -921,6 +932,11 @@ section {
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.about-section-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .about-section-content:hover::before {
@@ -1460,8 +1476,8 @@ a i:hover {
     .skills-grid,
     .projects-grid,
     .contact-methods {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        display: grid;
+        gap: 2rem;
         width: 100%;
         max-width: 600px;
         margin-left: auto;

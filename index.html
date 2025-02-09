@@ -32,7 +32,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #fff;
+            background: #000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,17 +40,28 @@
         }
         
         .loader {
-            width: 48px;
-            height: 48px;
-            border: 5px solid #007bff;
-            border-bottom-color: transparent;
-            border-radius: 50%;
-            animation: rotation 1s linear infinite;
+            font-size: 2rem;
+            color: #fff;
+            font-family: "Roboto", sans-serif;
+            position: relative;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
 
-        @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loader::after {
+            content: "Loading...";
+            animation: loadingDots 2s ease-in-out infinite;
+            opacity: 1;
+        }
+
+        @keyframes loadingDots {
+            0% { content: "Loading"; opacity: 0.6; }
+            20% { content: "Loading."; opacity: 0.8; }
+            40% { content: "Loading.."; opacity: 0.9; }
+            60% { content: "Loading..."; opacity: 1; }
+            80% { content: "Loading.."; opacity: 0.9; }
+            90% { content: "Loading."; opacity: 0.8; }
+            100% { content: "Loading"; opacity: 0.6; }
         }
 
         .content {
@@ -236,38 +247,32 @@
             <section id="contact" class="contact-section animate-section">
                 <div class="container">
                     <div class="contact-methods">
-                        <div class="contact-method">
+                        <a href="mailto:alvisprieditis.dev@gmail.com" class="contact-method">
                             <div class="method-icon">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <h3>Email</h3>
                             <p>Professional inquiries and collaboration</p>
-                            <a href="mailto:alvisprieditis.dev@gmail.com" class="method-link">
-                                alvisprieditis.dev@gmail.com
-                            </a>
-                        </div>
+                            <span class="method-link">alvisprieditis.dev@gmail.com</span>
+                        </a>
 
-                        <div class="contact-method">
+                        <a href="https://www.linkedin.com/in/alvisprieditis/" target="_blank" rel="noopener noreferrer" class="contact-method">
                             <div class="method-icon">
                                 <i class="fa-brands fa-linkedin"></i>
                             </div>
                             <h3>LinkedIn</h3>
                             <p>Connect professionally</p>
-                            <a href="https://www.linkedin.com/in/alvisprieditis/" target="_blank" rel="noopener noreferrer" class="method-link">
-                                View Profile
-                            </a>
-                        </div>
+                            <span class="method-link">View Profile</span>
+                        </a>
 
-                        <div class="contact-method">
+                        <a href="https://github.com/AlvisPr" target="_blank" rel="noopener noreferrer" class="contact-method">
                             <div class="method-icon">
                                 <i class="fa-brands fa-github"></i>
                             </div>
                             <h3>GitHub</h3>
                             <p>Check out my code repositories</p>
-                            <a href="https://github.com/AlvisPr" target="_blank" rel="noopener noreferrer" class="method-link">
-                                View Projects
-                            </a>
-                        </div>
+                            <span class="method-link">View Projects</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -275,7 +280,7 @@
 
         <footer class="main-footer">
             <div class="container">
-                <p>&copy; 2024 Alvis Prieditis. All rights reserved.</p>
+                <p>&copy; 2025 Alvis Prieditis. All rights reserved.</p>
             </div>
         </footer>
     </div>
