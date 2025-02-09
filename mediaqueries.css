@@ -195,15 +195,23 @@
         width: 100%;
         max-width: 350px;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .method-icon {
         margin: 0 auto;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .contact-content {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 100%;
     }
 }
