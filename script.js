@@ -10,17 +10,22 @@ window.addEventListener('load', () => {
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15
+    threshold: 0.1
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('in-viewport');
             observer.unobserve(entry.target); // Stop observing once animation is triggered
         }
     });
 }, observerOptions);
+
+// Observe all cards
+document.querySelectorAll('.about-section-content, .skill-card, .project-card, .contact-method').forEach(card => {
+    observer.observe(card);
+});
 
 // Start observing all sections
 document.addEventListener('DOMContentLoaded', () => {
@@ -83,11 +88,12 @@ function renderProjects() {
 
     projectsGrid.innerHTML = '';
 
-    projects.forEach(project => {
+    projects.forEach((project, index) => {
         const projectCard = document.createElement('article');
         projectCard.className = 'project-card';
 
-        const projectHTML = `
+        // Add HTML content first
+        projectCard.innerHTML = `
             <div class="project-image">
                 ${project.photo ? 
                     `<img src="${project.photo}" alt="${project.name}" loading="lazy">` : 
@@ -118,8 +124,18 @@ function renderProjects() {
                 </div>
             </div>`;
 
-        projectCard.innerHTML = projectHTML;
+        // Add to DOM
         projectsGrid.appendChild(projectCard);
+
+        // Trigger animation after a small delay
+        setTimeout(() => {
+            projectCard.classList.add('animate');
+        }, 50); // Small delay to ensure DOM is ready
+    });
+
+    // Re-observe new cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        observer.observe(card);
     });
 }
 
@@ -146,8 +162,11 @@ let elementFactory = () => {
     parentElement.style.padding = "50px";
     parentElement.innerHTML = ''; // Clear existing content
 
-    projects.forEach(element => {
-        let cardHTML = `
+    projects.forEach((element, index) => {
+        const projectCard = document.createElement('article');
+        projectCard.className = 'project-card';
+        
+        projectCard.innerHTML = `
         <article class="project-card">
             <div class="project-image">
                 ${element.photo ? 
@@ -179,7 +198,13 @@ let elementFactory = () => {
                 </div>
             </div>
         </article>`;
-        parentElement.innerHTML += cardHTML;
+        
+        parentElement.appendChild(projectCard);
+        
+        // Trigger animation after a small delay
+        setTimeout(() => {
+            projectCard.classList.add('animate');
+        }, 50 + (index * 100)); // Stagger the animations
     });
 };
 

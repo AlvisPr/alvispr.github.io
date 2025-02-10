@@ -322,6 +322,7 @@ section {
     border-radius: 12px;
     text-align: center;
     transition: all 0.3s ease;
+    opacity: 0;
 }
 
 .skill-card i {
@@ -382,6 +383,11 @@ section {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    opacity: 1;
+    transform: translateY(50px);
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 .project-card::before {
@@ -409,6 +415,22 @@ section {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
+
+.project-card.in-viewport {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card.animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Add staggered animation delays */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
 
 .tech-tag {
     background: rgba(42, 42, 42, 0.8);
@@ -697,6 +719,7 @@ section {
     align-items: center;
     position: relative;
     overflow: hidden;
+    opacity: 0;
 }
 
 .contact-method::before {
@@ -915,6 +938,7 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    opacity: 0;
 }
 
 .about-section-content::before {
@@ -1088,6 +1112,7 @@ section {
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
     overflow: hidden;
+    opacity: 0;
 }
 
 .card::before {
@@ -1125,7 +1150,7 @@ section {
 }
 
 .card-text {
-    color: var(--text-secondary);
+    color: var (--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -1207,7 +1232,7 @@ section {
 
 .btn-secondary {
     background-color: var(--background-gray);
-    color: var(--text-secondary);
+    color: var (--text-secondary);
     border: 1px solid var(--background-gray);
     padding: 0.75rem 1.5rem;
     font-weight: 500;
@@ -1640,3 +1665,53 @@ a i:hover {
 }
      
 }
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-section-content.in-viewport,
+.skill-card.in-viewport,
+.project-card.in-viewport,
+.contact-method.in-viewport {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+/* Add animation delay for staggered effect */
+.about-section-content:nth-child(1).in-viewport,
+.skill-card:nth-child(1).in-viewport,
+.project-card:nth-child(1).in-viewport,
+.contact-method:nth-child(1).in-viewport { animation-delay: 0.1s; }
+
+.about-section-content:nth-child(2).in-viewport,
+.skill-card:nth-child(2).in-viewport,
+.project-card:nth-child(2).in-viewport,
+.contact-method:nth-child(2).in-viewport { animation-delay: 0.2s; }
+
+.about-section-content:nth-child(3).in-viewport,
+.skill-card:nth-child(3).in-viewport,
+.project-card:nth-child(3).in-viewport,
+.contact-method:nth-child(3).in-viewport { animation-delay: 0.3s; }
+
+.about-section-content:nth-child(4).in-viewport,
+.skill-card:nth-child(4).in-viewport,
+.project-card:nth-child(4).in-viewport,
+.contact-method:nth-child(4).in-viewport { animation-delay: 0.4s; }
