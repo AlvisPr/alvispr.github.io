@@ -307,7 +307,11 @@
         text-align: center;
         gap: 2rem;
     }
-
+    
+    #myBtn {
+        display: none;
+    }
+    
     .hero-content {
         max-width: 100%;
     }
@@ -329,6 +333,10 @@
 @media screen and (max-width: 768px) {
     .main-nav {
         padding: 1rem;
+    }
+    
+    #myBtn {
+        display: none;
     }
 
     .nav-links {
@@ -356,6 +364,10 @@
         flex-direction: column;
         height: auto;
         padding: 1rem 0;
+    }
+    
+    #myBtn {
+        display: none;
     }
 
     .nav-brand {
